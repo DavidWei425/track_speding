@@ -5,7 +5,7 @@ while True:
 	product = input('請輸入商品名稱 : ')
 	if product == 'q':
 		break
-	price = input('請輸入商品價格 : ')
+	price = int(input('請輸入商品價格 : '))
 	track.append([product, price])
 print(track)
 
@@ -14,3 +14,8 @@ print(track[0][1])
 #也可用for將值取出
 for p in track:
 	print(p[0], '的價格為', p[1])
+
+#寫入檔案
+with open('track_spending.csv', 'w') as t:
+	for p in track:
+		t.write(p[0] + ',' + str(p[1]) + '\n')
